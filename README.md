@@ -1,164 +1,65 @@
-<p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.svg">
-    <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.svg">
-    <img src="assets/banner-light.svg" alt="Muhammad Mubeen — Senior Software Developer" width="100%">
-  </picture>
-</p>
+# Portfolio — Muhammad Mubeen
 
-<p align="center">
-  <a href="https://linkedin.com/in/muhammadmubeen-khatri-209105101"><img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin&logoColor=white&labelColor=1c2128" alt="LinkedIn"></a>
-  &nbsp;
-  <a href="mailto:mmubeen.khatri@gmail.com"><img src="https://img.shields.io/badge/Email-mmubeen.khatri%40gmail.com-EA4335?style=flat-square&logo=gmail&logoColor=white&labelColor=1c2128" alt="Email"></a>
-  &nbsp;
-  <img src="https://img.shields.io/badge/Based_in-Karachi,_PK-3B82F6?style=flat-square&labelColor=1c2128" alt="Location">
-  &nbsp;
-  <img src="https://img.shields.io/badge/Open_to-Senior_%2F_Lead_roles-22C55E?style=flat-square&labelColor=1c2128" alt="Availability">
-</p>
+A single-page portfolio site. No build step, no dependencies — one HTML file plus your CV.
 
-<br>
+```
+index.html                 the whole site (HTML + CSS + JS inline)
+Muhammad_Mubeen_CV.pdf     linked by the "Download CV" button
+```
 
-## About
+## Publish free on GitHub Pages
 
-Software engineer with **6+ years** designing and delivering production systems end to end — architecture, database design, API contracts, CI/CD, and release. I've served as **Lead Developer** on multiple complex products, owning technical direction and code quality for the teams around me, across fintech, healthcare, agri-tech, e-learning and marketplace domains.
+1. Create a new public repo — `portfolio` is a good name.
+2. Upload `index.html` and `Muhammad_Mubeen_CV.pdf` to the repo root.
+3. Repo → **Settings** → **Pages** → Source: *Deploy from a branch*, branch `main`, folder `/ (root)` → **Save**.
+4. Wait ~1 minute. Your site is live at `https://mmubeenkhatri.github.io/portfolio/`.
 
-<table>
-<tr>
-<td width="33%" valign="top">
+Want it at `https://mmubeenkhatri.github.io` with no path? Name the repo exactly
+`mmubeenkhatri.github.io` instead.
 
-**Architecture**
+### Custom domain (optional)
 
-Microservices and monolithic systems chosen on scale and team shape. Multi-tenancy, RBAC, audit trails, REST API contract design.
+Buy a domain, add a `CNAME` file to the repo containing just your domain
+(e.g. `mubeen.dev`), then point your DNS at GitHub Pages:
 
-</td>
-<td width="33%" valign="top">
+```
+A     @    185.199.108.153
+A     @    185.199.109.153
+A     @    185.199.110.153
+A     @    185.199.111.153
+CNAME www  mmubeenkhatri.github.io
+```
 
-**Engineering**
+Then tick **Enforce HTTPS** in Settings → Pages.
 
-Query optimization over large datasets, bulk data pipelines, payment gateway and e-sign integrations, CI/CD to AWS.
+## Turning on the contact form
 
-</td>
-<td width="33%" valign="top">
+Out of the box, the form opens the visitor's email client with the message pre-filled —
+it works everywhere and needs no service. To receive submissions in your inbox instead:
 
-**Leadership**
+1. Sign up free at [formspree.io](https://formspree.io) and create a form.
+2. Copy the form ID from the endpoint they give you (`https://formspree.io/f/**xbljkqwe**`).
+3. In `index.html`, find `var FORMSPREE_ID = "";` and paste the ID between the quotes.
 
-Code review standards, branching strategy and PR workflow, mentoring junior engineers, cross-functional delivery.
+The free tier covers 50 submissions a month, which is plenty for a portfolio.
 
-</td>
-</tr>
-</table>
+## Editing the content
 
-<br>
+Everything is plain HTML in one file — search for the text you want to change and edit it.
 
-## Technical Stack
+| What | Where to look |
+|:--|:--|
+| Headline, intro paragraph | `<h1>` and `.lede` near the top of the body |
+| The four metric numbers | `<div class="metrics">` — the `.n` spans |
+| Projects | `<article class="project">` blocks |
+| Stack chips | `<section id="capabilities">` |
+| Colours | the `:root` block at the top of `<style>` — change `--signal` to re-skin the whole page |
+| Fonts | the Google Fonts `<link>` and `--f-display` / `--f-body` / `--f-mono` |
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/stack-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="assets/stack-light.svg">
-  <img src="assets/stack-light.svg" alt="Technical stack" width="100%">
-</picture>
+## Before you share it
 
-<br>
-
-## Selected Work
-
-> Client work is described at architecture level — production code lives in private company repositories.
-
-| Project | Domain | Role | Core Stack |
-|:--|:--|:--|:--|
-| **LoanClod** | Fintech | Developer · AI sub-project lead | Laravel · MySQL · Python · OpenAI |
-| **Dayzee Farms** | Agri-tech / E-commerce | Lead Developer | Node.js · React Native · AWS · Jenkins |
-| **EnrichKids** | E-learning | Backend architect | NestJS · TypeScript · Next.js · Stripe |
-| **340B Price Guide** | Healthcare | Developer | Laravel · Python · NLP |
-| **Tradefindry** | Marketplace | Developer | AdonisJS · React · Firebase |
-
-<br>
-
-### LoanClod — Multi-Tenant Fintech Loan Platform
-
-<sup>`Laravel` · `JavaScript` · `MySQL`</sup>
-
-End-to-end loan lifecycle management for multiple financial institutions on a custom domain-based multi-tenant architecture. Built paperless documentation with e-sign integration, borrower task management, and an RBAC model spanning bank admins, supervisors and borrowers with a full audit trail and document tracking.
-
-> **Sub-project — AI Document Classification Engine** <sup>`Python` · `Tesseract OCR` · `OpenAI API`</sup>
-> Led an OCR + LLM pipeline that maps uploaded documents to the correct loan tasks automatically, with custom prompt engineering. Bulk multi-document upload with automatic classification accelerated borrower onboarding and cut manual loan-officer workload.
-
-### Dayzee Farms — Agri-Tech Livestock & E-Commerce Ecosystem
-
-<sup>`Node.js` · `React Native` · `MySQL` · `AWS EC2/S3` · `Jenkins`</sup>
-
-**Lead Developer.** Owned full database architecture, API development and DevOps across web, mobile and admin platforms.
-
-- Integrated MCB and Bank Alfalah payment gateways with 2FA across all clients
-- Built a technician (artificial insemination) mobile app with order acceptance and real-time delivery tracking
-- Established Jenkins CI/CD with automated deployments to AWS EC2; owned PR review and branching strategy
-
-### EnrichKids — Online Learning Platform
-
-<sup>`NestJS` · `TypeScript` · `Next.js` · `MySQL` · `Stripe`</sup>
-
-Designed and implemented the backend microservices architecture for an e-commerce-style e-learning product — course management, authentication, institution onboarding and Stripe payments — including a self-registration and course-publishing workflow that lets institutions list and sell courses independently.
-
-### 340B Price Guide — Healthcare Drug Pricing Platform
-
-<sup>`Laravel` · `Python` · `MySQL` · `NLP`</sup>
-
-- Optimized critical SQL queries, significantly improving global search performance across large pharmaceutical datasets
-- Re-engineered CSV bulk-import pipelines for drug names, pricing and classifications — improving upload speed and reliability
-- Implemented NLP-based conversational search for natural-language drug catalogue queries through a chat interface
-
-### Tradefindry — Interior Decorators & Vendors Marketplace
-
-<sup>`Node.js` · `AdonisJS` · `React` · `MySQL` · `Firebase`</sup>
-
-Two-sided marketplace with RESTful APIs and Firebase push notifications, RBAC across admin, designer and vendor roles, designer editor boards, vendor catalogue, geolocation search and an event scheduler.
-
-<details>
-<summary><b>Additional projects</b></summary>
-
-<br>
-
-**Tamam — Public Survey Application** <sup>`Laravel` · `Vue.js` · `MySQL` · `Firebase`</sup>
-Full-stack survey platform with a dynamic form builder, scheduling, and SMS/Firebase notification delivery, with separate mobile and admin panels.
-
-**O2W — Crypto Mining Remote Control Portal** <sup>`Node.js` · `Express` · `React`</sup>
-Real-time remote monitoring and control of mining machines with individual and group start/stop commands, plus secure peer-to-peer wallet transfers.
-
-**Pakistan Drug Manual — Desktop Application** <sup>`Java` · `Java Swing` · `MySQL`</sup>
-Windows desktop application for searching pharmaceutical products by manufacturer, distributor and pricing, built on OOP principles for non-technical end users.
-
-</details>
-
-<br>
-
-## Experience
-
-| Role | Company | Period |
-|:--|:--|:--|
-| **Software Developer (Tier 3)** | Genetech Solutions | 2021 – Present |
-| **Software Engineer** | DTS (Digital Transformation Systems) | Jan 2020 – Nov 2021 |
-
-## Education
-
-| Degree | Institution | Year |
-|:--|:--|:--|
-| **MS — Computer Science & IT** | NED University of Engineering & Technology | 2023 |
-| **BS — Computer Science** | University of Sindh | 2019 |
-
-<br>
-
-## GitHub
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=mmubeenkhatri&show_icons=true&hide_border=true&hide_title=true&theme=transparent&text_color=8b949e&icon_color=3b82f6" alt="GitHub statistics" height="150">
-  &nbsp;&nbsp;
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=mmubeenkhatri&layout=compact&hide_border=true&hide_title=true&theme=transparent&text_color=8b949e&langs_count=8" alt="Most used languages" height="150">
-</p>
-
----
-
-<p align="center">
-  <sub>Open to Senior / Lead Software Developer roles ·
-  <a href="mailto:mmubeen.khatri@gmail.com">mmubeen.khatri@gmail.com</a> ·
-  <a href="https://linkedin.com/in/muhammadmubeen-khatri-209105101">LinkedIn</a></sub>
-</p>
+- Replace the placeholder metrics if any number is off — `8 products delivered`,
+  `5 industry domains` and `2 as lead developer` are counted from your CV.
+- Add a real figure to the LoanClod AI paragraph if you have one (hours saved,
+  % faster onboarding). It's the strongest claim on the page and a number would prove it.
+- Check the phone number and email render correctly on your phone.
